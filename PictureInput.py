@@ -37,7 +37,7 @@ with open(filename)as f:
 #	edit5= {x.replace('<a',"") for x in edit4}
 #	edit6= {x.replace('src="//embedr.flickr.com/assets/client-code.js"',"") for x in edit5}
 	#edit2=[];
-
+#adf
 	#for i in edit1:
 		#a= re.search('src=(.+?).jpg', edit1);
 		#if a:
