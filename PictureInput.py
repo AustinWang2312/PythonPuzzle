@@ -16,18 +16,20 @@ with open(input_file_name)as f:
 	edit1= re.sub(r'\=.*?\img','',edit1)
 	edit1= re.sub(r'\href=".*?\/"','',edit1)
 	edit1= re.sub(r'\height=".*?\"','',edit1)
-	edit1= re.sub(r'\></a.*?\ipt','',edit1)
+	edit1= re.sub(r'\</a.*?\ipt','',edit1)
 	#edit1= re.sub(r'\le<.*?\img','',edit1)
 #	edit1= re.sub(r'\t.*?g','',edit1,flags=re.DOTALL)
 	edit1= edit1.split('\n');
-	edit1= [s[4:-1] for s in edit1]
+	edit1= [s[4:] for s in edit1]
 	edit1= edit1[:69]
 	count=0
 	def print_output(s):
+		#height= re.search('height="(.*)"',s)
+		#print(height)
+		output_file_handle.write ("\n")
 		output_file_handle.write ("<p>" + str(edit1.index(s)+1)+".")
 		output_file_handle.write ("\n")
-		output_file_handle.write ("<>br><img "+s) 
-		output_file_handle.write ("\n")
+		output_file_handle.write ("<br><img "+s) 
 		output_file_handle.write ("\n")
 
 	for s in edit1:
