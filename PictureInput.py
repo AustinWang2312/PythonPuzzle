@@ -15,21 +15,31 @@ with open(input_file_name)as f:
 	edit1= edit1.replace('data-flickr-embed="true"',"")
 	edit1= re.sub(r'\=.*?\img','',edit1)
 	edit1= re.sub(r'\href=".*?\/"','',edit1)
-	edit1= re.sub(r'\height=".*?\"','',edit1)
+	#edit1= re.sub(r'\height=".*?\"','',edit1)
 	edit1= re.sub(r'\</a.*?\ipt','',edit1)
 	#edit1= re.sub(r'\le<.*?\img','',edit1)
 #	edit1= re.sub(r'\t.*?g','',edit1,flags=re.DOTALL)
 	edit1= edit1.split('\n');
-	edit1= [s[4:] for s in edit1]
+	edit1= [s[4:-3] for s in edit1]
 	edit1= edit1[:69]
 	count=0
 	def print_output(s):
-		#height= re.search('height="(.*)"',s)
-		#print(height)
 		output_file_handle.write ("\n")
-		output_file_handle.write ("<p>" + str(edit1.index(s)+1)+".")
-		output_file_handle.write ("\n")
-		output_file_handle.write ("<br><img "+s) 
+		output_file_handle.write ("<p>" + str(edit1.index(s)+1)+". ")
+		matchH= re.search('height="(.*?)"',s)
+		matchW= re.search('width="(.*?)"',s)
+		height= matchH.group(1) if matchH else None
+		width= matchW.group(1) if matchW else None
+		if int(width)>=int(height):
+	#		print(900) 
+			s= re.sub(r'\width=".*?\"','width="900"',s)
+			s= re.sub(r'\height=".*?\"','',s)
+		elif int(height)>int(width):
+	#		print (500)
+			s= re.sub(r'\width=".*?\"','width="500"',s)
+			s= re.sub(r'\height=".*?\"','',s)
+	#	print (width,height)
+		output_file_handle.write ("\n<br><img "+s) 
 		output_file_handle.write ("\n")
 
 	for s in edit1:
