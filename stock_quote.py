@@ -25,7 +25,7 @@ def get_quote(symbol):
 	else:
 		price = 'no quote available for: ' + symbol
 #	return price
-symbol=input("What is the company symbol")
+symbol=input("What is the company symbol ")
 get_quote(symbol)
 
 
