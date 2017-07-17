@@ -15,6 +15,7 @@ ssh $2@$1 "echo Users: & who" | cat >> cpuinfo.txt
 ssh $2@$1 "echo Network Interface: & ifconfig" | cat >> cpuinfo.txt
 ssh $2@$1 "echo CPU Architecture: & lscpu; " | cat >> cpuinfo.txt
 ssh -t $2@$1 "echo Memory: & sudo dmidecode --type=17 | grep -E '(Size|Speed)'">>cpuinfo.txt
+ssh -t $2@$1 "echo End" |cat >>cpuinfo.txt
 
 #ssh $2@$1 "echo Kernel: & uname -r & echo Distribution: & lsb_release -a & echo Users: & who & echo Network Interface & ifconfig & echo CPU Architecture: & lscpu" | cat >> cpuinfo.txt
 #ssh -t $2@$1 "sudo dmidecode --type=17 | grep -E '(Size|Speed)'">>cpuinfo.txt

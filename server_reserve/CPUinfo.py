@@ -22,25 +22,71 @@ with open(file_config_name) as f:
 	contents=f.read()
 	match_hosts=re.findall('Host:(\S+)',contents)
 	match_ips=re.findall('IP:(\S+)',contents)
-	print(match_ips)
-	print(match_hosts)
+#	print(match_ips)
+#	print(match_hosts)
 
+d={} 
 for ip in match_ips:
 	subprocess.check_call(["./CPU.sh",ip,"root"])
+	with open(file_input_name) as f:
+		contents =f.read()
+#		match_mac=re.findall('HWaddr (\S+)',contents)
+		match_kernel=re.search('\Kernel:(.*?)\Distribution',contents,re.S)
+		kernel=match_kernel.group(1) if match_kernel else None 	
+#		print(kernel)
+		kernel=str.strip(kernel)
+		match_distribution=re.search('Distribution:(.*?)Users',contents,re.S)
+		distribution=match_distribution.group(1) if match_distribution else None 	
+			
+#		distribution=distribution.rstrip()
+#		distribution="".join(distribution.split('\n'))
+		distribution=re.sub('\s+'," ",distribution)
+#		print(distribution)
+		
+		match_users=re.search('Users:(.*?)Network Interface:',contents,re.S)
+		users=match_users.group(1) if match_users else None 	
+		users=re.sub('\s+'," ",users)
+#		print(users)
+				
+		match_network_interface=re.search('Network Interface:(.*?)CPU Architecture:',contents,re.S)
+		network_interface=match_network_interface.group(1) if match_network_interface else None 	
+		network_interface=re.sub('\s+'," ",network_interface)
+#		print(network_interface)
+		
 
-with open(file_input_name) as f:
-	contents =f.read()
-	match_mac=re.search('HWaddr (\S+)',contents)
-	mac=match_mac.group(1) if match_mac else None 	
-	print(mac)
+		match_CPU=re.search('CPU Architecture:(.*?)Flags:',contents,re.S)
+		CPU=match_CPU.group(1) if match_CPU else None 	
+		CPU=re.sub('\s+'," ",CPU)
+#		print(CPU)
+
+		match_memory=re.search('Memory:(.*?)End',contents,re.S)
+		memory=match_memory.group(1) if match_memory else None 	
+		memory=re.sub('\s+'," ",memory)
+#		print(memory)
+
+		d["Host:"+ip]={}	
+		d["Host:"+ip]["Kernel:"]=kernel
+		d["Host:"+ip]["Distribution:"]=distribution
+		d["Host:"+ip]["Users:"]=users
+		d["Host:"+ip]["Network Interface:"]=network_interface
+		d["Host:"+ip]["CPU Architecture:"]=CPU
+		d["Host:"+ip]["Memory:"]=memory
+		
+#print(d)
+#	for i in match_kernel:
+#		str.strip(i)
+#		print(i)
+#	print(match_kernel)
 	
-content={"mac_address":mac}
-json_str=json.dumps(content)
-print(json_str)
+#content={"mac_address":mac}
+json_str=json.dumps(d,indent=1)
+#json_str=json_str.replace('\\n','\n')
+#print(json_str)
 
 with open(file_output_name, "w") as fout:
 	json.loads((json_str), fout)
 	fout.write (json_str)
+
 #with open(file_input_name, "rb") as fin:
 #    content = json.load(str(fin))
 #with open(file_output_name, "wb") as fout:

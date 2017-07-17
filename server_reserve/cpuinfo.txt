@@ -6,26 +6,26 @@ Description:	Ubuntu 16.04.2 LTS
 Release:	16.04
 Codename:	xenial
 Users:
-graham   tty7         2017-07-14 15:59 (:0)
+graham   tty7         2017-07-17 14:31 (:0)
 Network Interface:
 enp2s0    Link encap:Ethernet  HWaddr 44:8a:5b:cd:c6:1f  
           inet addr:10.7.190.172  Bcast:10.7.190.255  Mask:255.255.255.0
           inet6 addr: fe80::9045:ad6a:683d:de52/64 Scope:Link
           UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
-          RX packets:1654936 errors:0 dropped:0 overruns:0 frame:0
-          TX packets:847036 errors:0 dropped:0 overruns:0 carrier:0
+          RX packets:55668 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:32230 errors:0 dropped:0 overruns:0 carrier:0
           collisions:0 txqueuelen:1000 
-          RX bytes:1299062429 (1.2 GB)  TX bytes:90438368 (90.4 MB)
+          RX bytes:30363810 (30.3 MB)  TX bytes:5431601 (5.4 MB)
           Interrupt:18 
 
 lo        Link encap:Local Loopback  
           inet addr:127.0.0.1  Mask:255.0.0.0
           inet6 addr: ::1/128 Scope:Host
           UP LOOPBACK RUNNING  MTU:65536  Metric:1
-          RX packets:1431 errors:0 dropped:0 overruns:0 frame:0
-          TX packets:1431 errors:0 dropped:0 overruns:0 carrier:0
+          RX packets:277 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:277 errors:0 dropped:0 overruns:0 carrier:0
           collisions:0 txqueuelen:1 
-          RX bytes:165191 (165.1 KB)  TX bytes:165191 (165.1 KB)
+          RX bytes:25900 (25.9 KB)  TX bytes:25900 (25.9 KB)
 
 CPU Architecture:
 Architecture:          x86_64
@@ -42,10 +42,10 @@ CPU family:            6
 Model:                 60
 Model name:            Intel(R) Core(TM) i7-4790K CPU @ 4.00GHz
 Stepping:              3
-CPU MHz:               4236.328
+CPU MHz:               4242.431
 CPU max MHz:           4400.0000
 CPU min MHz:           800.0000
-BogoMIPS:              8000.62
+BogoMIPS:              8000.58
 Virtualization:        VT-x
 L1d cache:             32K
 L1i cache:             32K
@@ -66,6 +66,7 @@ Memory:
 	Size: 8192 MB
 	Speed: 1600 MHz
 	Configured Clock Speed: 1600 MHz
+End
 Kernel:
 3.13.0-32-generic
 Distribution:
@@ -83,19 +84,26 @@ eth0      Link encap:Ethernet  HWaddr fc:aa:14:84:5c:2d
           inet addr:10.7.190.67  Bcast:10.7.190.255  Mask:255.255.255.0
           inet6 addr: fe80::feaa:14ff:fe84:5c2d/64 Scope:Link
           UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
-          RX packets:4154130 errors:0 dropped:0 overruns:0 frame:0
-          TX packets:1540165 errors:0 dropped:0 overruns:0 carrier:0
+          RX packets:4196915 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:1558771 errors:0 dropped:0 overruns:0 carrier:0
           collisions:0 txqueuelen:1000 
-          RX bytes:2375451031 (2.3 GB)  TX bytes:129050221 (129.0 MB)
+          RX bytes:2382538949 (2.3 GB)  TX bytes:131714786 (131.7 MB)
+
+eth1      Link encap:Ethernet  HWaddr 8a:53:95:7a:ca:76  
+          UP BROADCAST MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
 
 lo        Link encap:Local Loopback  
           inet addr:127.0.0.1  Mask:255.0.0.0
           inet6 addr: ::1/128 Scope:Host
           UP LOOPBACK RUNNING  MTU:65536  Metric:1
-          RX packets:8529 errors:0 dropped:0 overruns:0 frame:0
-          TX packets:8529 errors:0 dropped:0 overruns:0 carrier:0
+          RX packets:19225 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:19225 errors:0 dropped:0 overruns:0 carrier:0
           collisions:0 txqueuelen:0 
-          RX bytes:756757 (756.7 KB)  TX bytes:756757 (756.7 KB)
+          RX bytes:1765619 (1.7 MB)  TX bytes:1765619 (1.7 MB)
 
 CPU Architecture:
 Architecture:          x86_64
@@ -132,3 +140,4 @@ Memory:
 	Size: 8192 MB
 	Speed: 1600 MHz
 	Configured Clock Speed: 1600 MHz
+End

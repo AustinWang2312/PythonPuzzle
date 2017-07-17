@@ -1,1 +1,18 @@
-{"mac_address": "44:8a:5b:cd:c6:1f"}
+{
+ "Host:10.7.190.172": {
+  "Users:": " graham tty7 2017-07-17 14:31 (:0) ",
+  "CPU Architecture:": " Architecture: x86_64 CPU op-mode(s): 32-bit, 64-bit Byte Order: Little Endian CPU(s): 8 On-line CPU(s) list: 0-7 Thread(s) per core: 2 Core(s) per socket: 4 Socket(s): 1 NUMA node(s): 1 Vendor ID: GenuineIntel CPU family: 6 Model: 60 Model name: Intel(R) Core(TM) i7-4790K CPU @ 4.00GHz Stepping: 3 CPU MHz: 4242.431 CPU max MHz: 4400.0000 CPU min MHz: 800.0000 BogoMIPS: 8000.58 Virtualization: VT-x L1d cache: 32K L1i cache: 32K L2 cache: 256K L3 cache: 8192K NUMA node0 CPU(s): 0-7 ",
+  "Distribution:": " Distributor ID: Ubuntu Description: Ubuntu 16.04.2 LTS Release: 16.04 Codename: xenial ",
+  "Memory:": " Size: No Module Installed Speed: Unknown Configured Clock Speed: Unknown Size: 8192 MB Speed: 1600 MHz Configured Clock Speed: 1600 MHz Size: No Module Installed Speed: Unknown Configured Clock Speed: Unknown Size: 8192 MB Speed: 1600 MHz Configured Clock Speed: 1600 MHz ",
+  "Kernel:": "4.8.0-58-generic",
+  "Network Interface:": " enp2s0 Link encap:Ethernet HWaddr 44:8a:5b:cd:c6:1f inet addr:10.7.190.172 Bcast:10.7.190.255 Mask:255.255.255.0 inet6 addr: fe80::9045:ad6a:683d:de52/64 Scope:Link UP BROADCAST RUNNING MULTICAST MTU:1500 Metric:1 RX packets:55668 errors:0 dropped:0 overruns:0 frame:0 TX packets:32230 errors:0 dropped:0 overruns:0 carrier:0 collisions:0 txqueuelen:1000 RX bytes:30363810 (30.3 MB) TX bytes:5431601 (5.4 MB) Interrupt:18 lo Link encap:Local Loopback inet addr:127.0.0.1 Mask:255.0.0.0 inet6 addr: ::1/128 Scope:Host UP LOOPBACK RUNNING MTU:65536 Metric:1 RX packets:277 errors:0 dropped:0 overruns:0 frame:0 TX packets:277 errors:0 dropped:0 overruns:0 carrier:0 collisions:0 txqueuelen:1 RX bytes:25900 (25.9 KB) TX bytes:25900 (25.9 KB) "
+ },
+ "Host:10.7.190.67": {
+  "Users:": " graham tty7 2017-07-17 14:31 (:0) ",
+  "CPU Architecture:": " Architecture: x86_64 CPU op-mode(s): 32-bit, 64-bit Byte Order: Little Endian CPU(s): 8 On-line CPU(s) list: 0-7 Thread(s) per core: 2 Core(s) per socket: 4 Socket(s): 1 NUMA node(s): 1 Vendor ID: GenuineIntel CPU family: 6 Model: 60 Model name: Intel(R) Core(TM) i7-4790K CPU @ 4.00GHz Stepping: 3 CPU MHz: 4242.431 CPU max MHz: 4400.0000 CPU min MHz: 800.0000 BogoMIPS: 8000.58 Virtualization: VT-x L1d cache: 32K L1i cache: 32K L2 cache: 256K L3 cache: 8192K NUMA node0 CPU(s): 0-7 ",
+  "Distribution:": " Distributor ID: Ubuntu Description: Ubuntu 16.04.2 LTS Release: 16.04 Codename: xenial ",
+  "Memory:": " Size: No Module Installed Speed: Unknown Configured Clock Speed: Unknown Size: 8192 MB Speed: 1600 MHz Configured Clock Speed: 1600 MHz Size: No Module Installed Speed: Unknown Configured Clock Speed: Unknown Size: 8192 MB Speed: 1600 MHz Configured Clock Speed: 1600 MHz ",
+  "Kernel:": "4.8.0-58-generic",
+  "Network Interface:": " enp2s0 Link encap:Ethernet HWaddr 44:8a:5b:cd:c6:1f inet addr:10.7.190.172 Bcast:10.7.190.255 Mask:255.255.255.0 inet6 addr: fe80::9045:ad6a:683d:de52/64 Scope:Link UP BROADCAST RUNNING MULTICAST MTU:1500 Metric:1 RX packets:55668 errors:0 dropped:0 overruns:0 frame:0 TX packets:32230 errors:0 dropped:0 overruns:0 carrier:0 collisions:0 txqueuelen:1000 RX bytes:30363810 (30.3 MB) TX bytes:5431601 (5.4 MB) Interrupt:18 lo Link encap:Local Loopback inet addr:127.0.0.1 Mask:255.0.0.0 inet6 addr: ::1/128 Scope:Host UP LOOPBACK RUNNING MTU:65536 Metric:1 RX packets:277 errors:0 dropped:0 overruns:0 frame:0 TX packets:277 errors:0 dropped:0 overruns:0 carrier:0 collisions:0 txqueuelen:1 RX bytes:25900 (25.9 KB) TX bytes:25900 (25.9 KB) "
+ }
+}
