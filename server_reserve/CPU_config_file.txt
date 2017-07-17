@@ -1,0 +1,4 @@
+#this is config file
+
+Host:graham IP:10.7.190.172
+Host:pxwang IP:10.7.190.67
