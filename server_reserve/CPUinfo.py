@@ -1,7 +1,7 @@
 import re
 import json 
 import subprocess
-
+import os
 
 
 
@@ -87,7 +87,8 @@ json_str=json.dumps(d,indent=1)
 with open(file_output_name, "w") as fout:
 #	json.loads((json_str), fout)
 	fout.write (json_str)
-
+#subprocess.check_call("./dynamic.py",shell=True)
+os.system("python3 ./frontend/dynamic.py")
 #with open(file_input_name, "rb") as fin:
 #    content = json.load(str(fin))
 #with open(file_output_name, "wb") as fout:
