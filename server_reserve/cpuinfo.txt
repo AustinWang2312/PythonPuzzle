@@ -6,27 +6,28 @@ Description:	Ubuntu 14.04.1 LTS
 Release:	14.04
 Codename:	trusty
 Users:
-root     tty1         2017-06-23 14:34
-pxwang   :0           2017-06-23 14:34 (:0)
-pxwang   pts/11       2017-06-23 14:34 (:0)
+PXWANG   :0           2017-04-14 17:29 (:0)
+PXWANG   pts/12       2017-04-14 17:29 (:0)
+root     pts/11       2017-07-18 09:49 (phas)
 Network Interface:
-eth0      Link encap:Ethernet  HWaddr fc:aa:14:84:5c:2d  
-          inet addr:10.7.190.67  Bcast:10.7.190.255  Mask:255.255.255.0
-          inet6 addr: fe80::feaa:14ff:fe84:5c2d/64 Scope:Link
+eth0      Link encap:Ethernet  HWaddr 70:71:bc:cd:16:05  
+          inet addr:10.7.190.70  Bcast:10.7.190.255  Mask:255.255.255.0
+          inet6 addr: fe80::7271:bcff:fecd:1605/64 Scope:Link
           UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
-          RX packets:4297160 errors:0 dropped:0 overruns:0 frame:0
-          TX packets:1580205 errors:0 dropped:0 overruns:0 carrier:0
+          RX packets:11983610 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:59299 errors:0 dropped:0 overruns:0 carrier:0
           collisions:0 txqueuelen:1000 
-          RX bytes:2400442106 (2.4 GB)  TX bytes:133659259 (133.6 MB)
+          RX bytes:1770649532 (1.7 GB)  TX bytes:4463569 (4.4 MB)
+          Interrupt:20 Memory:f6300000-f6320000 
 
 lo        Link encap:Local Loopback  
           inet addr:127.0.0.1  Mask:255.0.0.0
           inet6 addr: ::1/128 Scope:Host
           UP LOOPBACK RUNNING  MTU:65536  Metric:1
-          RX packets:20997 errors:0 dropped:0 overruns:0 frame:0
-          TX packets:20997 errors:0 dropped:0 overruns:0 carrier:0
+          RX packets:4973 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:4973 errors:0 dropped:0 overruns:0 carrier:0
           collisions:0 txqueuelen:0 
-          RX bytes:1932750 (1.9 MB)  TX bytes:1932750 (1.9 MB)
+          RX bytes:568888 (568.8 KB)  TX bytes:568888 (568.8 KB)
 
 CPU Architecture:
 Architecture:          x86_64
@@ -40,27 +41,23 @@ Socket(s):             1
 NUMA node(s):          1
 Vendor ID:             GenuineIntel
 CPU family:            6
-Model:                 60
-Stepping:              3
-CPU MHz:               3600.000
-BogoMIPS:              7200.06
+Model:                 42
+Stepping:              7
+CPU MHz:               3400.000
+BogoMIPS:              6784.47
 Virtualization:        VT-x
 L1d cache:             32K
 L1i cache:             32K
 L2 cache:              256K
 L3 cache:              8192K
 NUMA node0 CPU(s):     0-3
-Memory:
-	Size: 8192 MB
-	Speed: 1600 MHz
-	Configured Clock Speed: 1600 MHz
-	Size: 8192 MB
-	Speed: 1600 MHz
-	Configured Clock Speed: 1600 MHz
-	Size: 8192 MB
-	Speed: 1600 MHz
-	Configured Clock Speed: 1600 MHz
-	Size: 8192 MB
-	Speed: 1600 MHz
-	Configured Clock Speed: 1600 MHz
+Memory Info:
+	Size: No Module Installed
+	Speed: Unknown
+	Size: 2048 MB
+	Speed: 1333 MHz
+	Size: 4096 MB
+	Speed: 1333 MHz
+	Size: 2048 MB
+	Speed: 1333 MHz
 End

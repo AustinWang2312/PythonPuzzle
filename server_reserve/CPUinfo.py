@@ -54,12 +54,12 @@ for ip in match_ips:
 #		print(network_interface)
 		
 
-		match_CPU=re.search('CPU Architecture:(.*?)Memory:',contents,re.S)
+		match_CPU=re.search('CPU Architecture:(.*?)Memory Info:',contents,re.S)
 		CPU=match_CPU.group(1) if match_CPU else None 	
 		CPU=re.sub('\s+'," ",CPU)
 #		print(CPU)
 
-		match_memory=re.search('Memory:(.*?)End',contents,re.S)
+		match_memory=re.search('Memory Info:(.*?)End',contents,re.S)
 		memory=match_memory.group(1) if match_memory else None 	
 		memory=re.sub('\s+'," ",memory)
 #		print(memory)
