@@ -22,7 +22,7 @@ with open("/var/www/html/index.html","w") as r:
 		jsondata = jsondata.replace("\"", "<br>" )		
 		jsondata = jsondata.replace("<br>: <br>", "" )
 		jsondata = jsondata.replace("Host:", "<font style=\"background-color: #EF4323\">Host:</font> ")
-		jsondata = jsondata.replace("Memory:", "<font style=\"background-color: #ff8e3a \">Memory:</font> ")
+		jsondata = jsondata.replace("Memory Info:", "<font style=\"background-color: #ff8e3a \">Memory Info:</font> ")
 		jsondata = jsondata.replace("Network Interface:", "<font style=\"background-color: #ff8e3a\">Network Interface:</font> ")
 		jsondata = jsondata.replace("Distribution:", "<font style=\"background-color: #ff8e3a\">Distribution:</font> ")
 		jsondata = jsondata.replace("CPU Architecture:", "<font style=\"background-color: #ff8e3a\">CPU Architecture:</font> ")

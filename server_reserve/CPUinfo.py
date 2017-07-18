@@ -70,7 +70,7 @@ for ip in match_ips:
 		d["Host:"+ip]["Users:"]=users
 		d["Host:"+ip]["Network Interface:"]=network_interface
 		d["Host:"+ip]["CPU Architecture:"]=CPU
-		d["Host:"+ip]["Memory:"]=memory
+		d["Host:"+ip]["Memory Info:"]=memory
 #		open(file_input_name, 'w').close()
 		
 #print(d)
