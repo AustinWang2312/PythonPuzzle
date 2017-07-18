@@ -1,4 +1,3 @@
-import json
 import subprocess
 with open("/var/www/html/index.html","w") as r:
 	print("<html>", file = r)	
@@ -16,10 +15,22 @@ with open("/var/www/html/index.html","w") as r:
 	print("</h3>", file = r)
 	print("<body>", file = r)
 	with open("./cpuinfo.json", "r") as f:
-		jsondata = json.load(f)
-		
+		jsondata = f.read()	
+		jsondata = jsondata.replace("{", "<br>" )
+		jsondata = jsondata.replace("}", "<br>" )
+		jsondata = jsondata.replace(",", "<br>" )
+		jsondata = jsondata.replace("\"", "<br>" )		
+		jsondata = jsondata.replace("<br>: <br>", "" )
+		jsondata = jsondata.replace("Host:", "<font style=\"background-color: #EF4323\">Host:</font> ")
+		jsondata = jsondata.replace("Memory:", "<font style=\"background-color: #ff8e3a \">Memory:</font> ")
+		jsondata = jsondata.replace("Network Interface:", "<font style=\"background-color: #ff8e3a\">Network Interface:</font> ")
+		jsondata = jsondata.replace("Distribution:", "<font style=\"background-color: #ff8e3a\">Distribution:</font> ")
+		jsondata = jsondata.replace("CPU Architecture:", "<font style=\"background-color: #ff8e3a\">CPU Architecture:</font> ")
+		jsondata = jsondata.replace("Kernel:", "<font style=\"background-color: #ff8e3a\">Kernel:</font> ")
+		jsondata = jsondata.replace("Users:", "<font style=\"background-color: #ff8e3a\">Users:</font> ")
+
 		print(jsondata, file = r)
 		print("</body>", file = r)
 		print("</html>", file = r)
 
-subprocess.check_call("./frontend/cpagec.sh",shell=True)	
+subprocess.check_call("./frontend/cpagec.sh",shell=True)
