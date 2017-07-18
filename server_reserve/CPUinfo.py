@@ -54,7 +54,7 @@ for ip in match_ips:
 #		print(network_interface)
 		
 
-		match_CPU=re.search('CPU Architecture:(.*?)Flags:',contents,re.S)
+		match_CPU=re.search('CPU Architecture:(.*?)Memory:',contents,re.S)
 		CPU=match_CPU.group(1) if match_CPU else None 	
 		CPU=re.sub('\s+'," ",CPU)
 #		print(CPU)
@@ -71,6 +71,7 @@ for ip in match_ips:
 		d["Host:"+ip]["Network Interface:"]=network_interface
 		d["Host:"+ip]["CPU Architecture:"]=CPU
 		d["Host:"+ip]["Memory:"]=memory
+#		open(file_input_name, 'w').close()
 		
 #print(d)
 #	for i in match_kernel:
@@ -84,7 +85,7 @@ json_str=json.dumps(d,indent=1)
 #print(json_str)
 
 with open(file_output_name, "w") as fout:
-	json.loads((json_str), fout)
+#	json.loads((json_str), fout)
 	fout.write (json_str)
 
 #with open(file_input_name, "rb") as fin:
