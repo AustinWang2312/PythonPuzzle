@@ -15,7 +15,7 @@ with open("/var/www/html/index.html","w") as r:
 	print("</h3>", file = r)
 	print("<body>", file = r)
 	with open("./cpuinfo.json", "r") as f:
-		brlist = ["{","}",",","\""]
+		brlist = ["{","}",",","\"","\\n"]
 		jsondata = f.read()	
 		
 		for i in brlist:
@@ -24,7 +24,7 @@ with open("/var/www/html/index.html","w") as r:
 	#	jsondata = jsondata.replace(",", "<br>" )
 	#	jsondata = jsondata.replace("\"", "<br>" )		
 		jsondata = jsondata.replace("<br>: <br>", "<br>" )
-		
+		jsondata= jsondata.replace("\\t","")	
 		title = ["Memory Info:","Network Interface:","Distribution:","CPU Architecture:","Kernel:","Users:"]
 		for j in title:
 			jsondata = jsondata.replace(j, "<font style=\"background-color:ff8e3a\">"+j+"</font>")

@@ -45,23 +45,23 @@ for ip in match_ips:
 		
 		match_users=re.search('Users:(.*?)Network Interface:',contents,re.S)
 		users=match_users.group(1) if match_users else None 	
-		users=re.sub('\s+'," ",users)
+#		users=re.sub('\s+'," ",users)
 #		print(users)
 				
 		match_network_interface=re.search('Network Interface:(.*?)CPU Architecture:',contents,re.S)
 		network_interface=match_network_interface.group(1) if match_network_interface else None 	
-		network_interface=re.sub('\s+'," ",network_interface)
+#		network_interface=re.sub('\s+'," ",network_interface)
 #		print(network_interface)
 		
 
 		match_CPU=re.search('CPU Architecture:(.*?)Memory Info:',contents,re.S)
 		CPU=match_CPU.group(1) if match_CPU else None 	
-		CPU=re.sub('\s+'," ",CPU)
+#		CPU=re.sub('\s+'," ",CPU)
 #		print(CPU)
 
 		match_memory=re.search('Memory Info:(.*?)End',contents,re.S)
 		memory=match_memory.group(1) if match_memory else None 	
-		memory=re.sub('\s+'," ",memory)
+#		memory=re.sub('\s+'," ",memory)
 #		print(memory)
 
 		d["Host:"+ip]={}	
