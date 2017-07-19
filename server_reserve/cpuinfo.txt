@@ -1,32 +1,32 @@
+Host Name:
+yash-hsw-intel
 Kernel:
-3.13.0-32-generic
+4.4.0-79-generic
 Distribution:
 Distributor ID:	Ubuntu
-Description:	Ubuntu 14.04.1 LTS
-Release:	14.04
-Codename:	trusty
+Description:	Ubuntu 16.04.2 LTS
+Release:	16.04
+Codename:	xenial
 Users:
-PXWANG   :0           2017-04-14 17:29 (:0)
-PXWANG   pts/12       2017-04-14 17:29 (:0)
+yash     tty7         2017-06-23 11:27 (:0)
 Network Interface:
-eth0      Link encap:Ethernet  HWaddr 70:71:bc:cd:16:05  
-          inet addr:10.7.190.70  Bcast:10.7.190.255  Mask:255.255.255.0
-          inet6 addr: fe80::7271:bcff:fecd:1605/64 Scope:Link
+enp2s0    Link encap:Ethernet  HWaddr fc:aa:14:88:71:c5  
+          inet addr:10.7.189.180  Bcast:10.7.189.255  Mask:255.255.255.0
+          inet6 addr: fe80::d809:51e5:809b:a033/64 Scope:Link
           UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
-          RX packets:12034286 errors:0 dropped:0 overruns:0 frame:0
-          TX packets:74280 errors:0 dropped:0 overruns:0 carrier:0
+          RX packets:27374562 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:9250184 errors:0 dropped:0 overruns:0 carrier:0
           collisions:0 txqueuelen:1000 
-          RX bytes:1779824260 (1.7 GB)  TX bytes:6861579 (6.8 MB)
-          Interrupt:20 Memory:f6300000-f6320000 
+          RX bytes:16411704615 (16.4 GB)  TX bytes:1331960734 (1.3 GB)
 
 lo        Link encap:Local Loopback  
           inet addr:127.0.0.1  Mask:255.0.0.0
           inet6 addr: ::1/128 Scope:Host
           UP LOOPBACK RUNNING  MTU:65536  Metric:1
-          RX packets:15873 errors:0 dropped:0 overruns:0 frame:0
-          TX packets:15873 errors:0 dropped:0 overruns:0 carrier:0
-          collisions:0 txqueuelen:0 
-          RX bytes:1591987 (1.5 MB)  TX bytes:1591987 (1.5 MB)
+          RX packets:382343 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:382343 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1 
+          RX bytes:34713384 (34.7 MB)  TX bytes:34713384 (34.7 MB)
 
 CPU Architecture:
 Architecture:          x86_64
@@ -40,23 +40,31 @@ Socket(s):             1
 NUMA node(s):          1
 Vendor ID:             GenuineIntel
 CPU family:            6
-Model:                 42
-Stepping:              7
-CPU MHz:               1600.000
-BogoMIPS:              6784.47
+Model:                 60
+Model name:            Intel(R) Core(TM) i7-4790 CPU @ 3.60GHz
+Stepping:              3
+CPU MHz:               3600.000
+CPU max MHz:           4000.0000
+CPU min MHz:           800.0000
+BogoMIPS:              7199.31
 Virtualization:        VT-x
 L1d cache:             32K
 L1i cache:             32K
 L2 cache:              256K
 L3 cache:              8192K
 NUMA node0 CPU(s):     0-3
+Flags:                 fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid xsaveopt dtherm arat pln pts
 Memory Info:
-	Size: No Module Installed
-	Speed: Unknown
-	Size: 2048 MB
-	Speed: 1333 MHz
-	Size: 4096 MB
-	Speed: 1333 MHz
-	Size: 2048 MB
-	Speed: 1333 MHz
+	Size: 8192 MB
+	Speed: 1600 MHz
+	Configured Clock Speed: 1600 MHz
+	Size: 8192 MB
+	Speed: 1600 MHz
+	Configured Clock Speed: 1600 MHz
+	Size: 8192 MB
+	Speed: 1600 MHz
+	Configured Clock Speed: 1600 MHz
+	Size: 8192 MB
+	Speed: 1600 MHz
+	Configured Clock Speed: 1600 MHz
 End

@@ -33,7 +33,7 @@ for ip in match_ips:
 #		match_mac=re.findall('HWaddr (\S+)',contents)
 		match_host_name=re.search('Host Name:(.*?)Kernel:',contents,re.S)
 		host_name=match_host_name.group(1) if match_host_name else None 	
-		host_name=re.sub('\s+'," ",host_name)
+		host_name=re.sub('\s+',"",host_name)
 		
 		match_kernel=re.search('\Kernel:(.*?)\Distribution',contents,re.S)
 		kernel=match_kernel.group(1) if match_kernel else None 	
