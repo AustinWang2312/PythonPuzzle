@@ -27,14 +27,19 @@ with open(file_config_name) as f:
 
 d={} 
 for ip in match_ips:
-	subprocess.check_call(["./CPU.sh",ip,"root"])
+	subprocess.check_call(["./CPU.sh",ip,"admin_awgs"])
 	with open(file_input_name) as f:
 		contents =f.read()
 #		match_mac=re.findall('HWaddr (\S+)',contents)
+		match_host_name=re.search('Host Name:(.*?)Kernel:',contents,re.S)
+		host_name=match_host_name.group(1) if match_host_name else None 	
+		host_name=re.sub('\s+'," ",host_name)
+		
 		match_kernel=re.search('\Kernel:(.*?)\Distribution',contents,re.S)
 		kernel=match_kernel.group(1) if match_kernel else None 	
 #		print(kernel)
 		kernel=str.strip(kernel)
+	
 		match_distribution=re.search('Distribution:(.*?)Users',contents,re.S)
 		distribution=match_distribution.group(1) if match_distribution else None 	
 			
@@ -63,14 +68,13 @@ for ip in match_ips:
 		memory=match_memory.group(1) if match_memory else None 	
 #		memory=re.sub('\s+'," ",memory)
 #		print(memory)
-
-		d["Host:"+ip]={}	
-		d["Host:"+ip]["Kernel:"]=kernel
-		d["Host:"+ip]["Distribution:"]=distribution
-		d["Host:"+ip]["Users:"]=users
-		d["Host:"+ip]["Network Interface:"]=network_interface
-		d["Host:"+ip]["CPU Architecture:"]=CPU
-		d["Host:"+ip]["Memory Info:"]=memory
+		d["Host:"+host_name+"@"+ip]={}	
+		d["Host:"+host_name+"@"+ip]["Kernel:"]=kernel
+		d["Host:"+host_name+"@"+ip]["Distribution:"]=distribution
+		d["Host:"+host_name+"@"+ip]["Users:"]=users
+		d["Host:"+host_name+"@"+ip]["Network Interface:"]=network_interface
+		d["Host:"+host_name+"@"+ip]["CPU Architecture:"]=CPU
+		d["Host:"+host_name+"@"+ip]["Memory Info:"]=memory
 #		open(file_input_name, 'w').close()
 		
 #print(d)
