@@ -9,7 +9,8 @@ fi
 #$2=username
 #$3=your ip address don't need anymore
 #$4=your username don't need anymore
-ssh $2@$1 "echo Kernel: & uname -r" | cat > cpuinfo.txt
+ssh $2@$1 "echo Host Name: & hostname" | cat > cpuinfo.txt
+ssh $2@$1 "echo Kernel: & uname -r" | cat >> cpuinfo.txt
 ssh $2@$1 "echo Distribution: & lsb_release -a" | cat >> cpuinfo.txt
 ssh $2@$1 "echo Users: & who" | cat >> cpuinfo.txt
 ssh $2@$1 "echo Network Interface: & ifconfig" | cat >> cpuinfo.txt
