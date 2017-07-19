@@ -12,11 +12,15 @@ then
 	ssh-keygen -t rsa
 fi
 #echo "Add:'admin ALL=(ALL) NOPASSWD:ALL' to the end of file"
-ssh -t $2@$1 "adduser admin_awgs"
-ssh -t $2@$1 " echo "admin_awgs:rtp" | chpasswd"
-ssh -t $2@$1 "echo 'admin_awgs ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers"
+if ! grep -q "admin_awgs" "/etc/passwd";
+then
+	echo "Press enter for all the prompts"
+	ssh -t $2@$1 "adduser admin_awgs"
+	ssh -t $2@$1 " echo "admin_awgs:rtp" | chpasswd"
+	ssh -t $2@$1 "echo 'admin_awgs ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers"
+	ssh -t $2@$1 "sudo service ssh restart & sudo chown -R admin_awgs /home/admin_awgs"
+fi
 #ssh -t $2@$1 "sudo su admin & sudo visudo"
-ssh -t $2@$1 "sudo service ssh restart & sudo chown -R admin_awgs /home/admin_awgs"
 echo "password:rtp"
 
 #cat ~/.ssh/id_rsa.pub | ssh admin@$1 "sudo mkdir -p /home/.ssh && cat >>  /home/.ssh/authorized_keys"
