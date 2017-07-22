@@ -12,9 +12,9 @@ import os
 #remote_user="graham"
 #your_ip="10.7.189.88"    
 #your_user="austin"
-file_config_name="CPU_config_file.txt"
-file_input_name="cpuinfo.txt"
-file_output_name="cpuinfo.json"
+file_config_name="/home/austin/PythonPuzzle/server_reserve/CPU_config_file.txt"
+file_input_name="/home/austin/PythonPuzzle/server_reserve/cpuinfo.txt"
+file_output_name="/home/austin/PythonPuzzle/server_reserve/cpuinfo.json"
 
 open(file_input_name, 'w').close()
 
@@ -27,7 +27,7 @@ with open(file_config_name) as f:
 
 d={} 
 for ip in match_ips:
-	subprocess.check_call(["./CPU.sh",ip,"admin_awgs"])
+	subprocess.check_call(["/home/austin/PythonPuzzle/server_reserve/CPU.sh",ip,"admin_awgs"])
 	with open(file_input_name) as f:
 		contents =f.read()
 #		match_mac=re.findall('HWaddr (\S+)',contents)
@@ -92,7 +92,7 @@ with open(file_output_name, "w") as fout:
 #	json.loads((json_str), fout)
 	fout.write (json_str)
 #subprocess.check_call("./dynamic.py",shell=True)
-os.system("python3 ./frontend/dynamic.py")
+os.system("python3 /home/austin/PythonPuzzle/server_reserve/frontend/dynamic.py")
 #with open(file_input_name, "rb") as fin:
 #    content = json.load(str(fin))
 #with open(file_output_name, "wb") as fout:

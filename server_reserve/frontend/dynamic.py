@@ -18,8 +18,8 @@ with open("/var/www/html/index.html","w") as r:
 	print("Intel Server Info", file = r)
 	print("</h3>", file = r)
 	print("<body>", file = r)
-	with open("./cpuinfo.json", "r") as f:
-		brlist = ["{","}",",","\"","\\n"]
+	with open("/home/austin/PythonPuzzle/server_reserve/cpuinfo.json", "r") as f:
+		brlist = ["{","}",",","\"","\\n",]
 		jsondata = f.read()	
 
 
@@ -28,6 +28,7 @@ with open("/var/www/html/index.html","w") as r:
 
 		jsondata = jsondata.replace("<br>: <br>", "<br>" )
 		jsondata= jsondata.replace("\\t","")
+		jsondata= jsondata.replace("\r","")
 
 		h = jsondata.count(s)
 		
@@ -59,4 +60,4 @@ with open("/var/www/html/index.html","w") as r:
 		print("</body>", file = r)
 		print("</html>", file = r)
 
-subprocess.check_call("./frontend/cpagec.sh",shell=True)
+#subprocess.check_call("/home/austin/PythonPuzzle/server_reserve/frontend/cpagec.sh",shell=True)

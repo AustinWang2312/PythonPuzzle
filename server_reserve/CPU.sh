@@ -9,14 +9,14 @@ fi
 #$2=username
 #$3=your ip address don't need anymore
 #$4=your username don't need anymore
-ssh $2@$1 "echo Host Name: & hostname" | cat > cpuinfo.txt
-ssh $2@$1 "echo Kernel: & uname -r" | cat >> cpuinfo.txt
-ssh $2@$1 "echo Distribution: & lsb_release -a" | cat >> cpuinfo.txt
-ssh $2@$1 "echo Users: & who" | cat >> cpuinfo.txt
-ssh $2@$1 "echo Network Interface: & ifconfig" | cat >> cpuinfo.txt
-ssh $2@$1 "echo CPU Architecture: & lscpu; " | cat >> cpuinfo.txt
-ssh -t $2@$1 "echo Memory Info: & sudo dmidecode --type=17 | grep -E '(Size|Speed)'">>cpuinfo.txt
-ssh -t $2@$1 "echo End" |cat >>cpuinfo.txt
+ssh -t -t  $2@$1 "echo Host Name: & hostname" | cat > /home/austin/PythonPuzzle/server_reserve/cpuinfo.txt
+ssh $2@$1 "echo Kernel: & uname -r" | cat >> /home/austin/PythonPuzzle/server_reserve/cpuinfo.txt
+ssh $2@$1 "echo Distribution: & lsb_release -a" | cat >> /home/austin/PythonPuzzle/server_reserve/cpuinfo.txt
+ssh $2@$1 "echo Users: & who" | cat >> /home/austin/PythonPuzzle/server_reserve/cpuinfo.txt
+ssh $2@$1 "echo Network Interface: & ifconfig" | cat >> /home/austin/PythonPuzzle/server_reserve/cpuinfo.txt
+ssh $2@$1 "echo CPU Architecture: & lscpu; " | cat >> /home/austin/PythonPuzzle/server_reserve/cpuinfo.txt
+ssh -t -t $2@$1 "echo Memory Info: & sudo dmidecode --type=17 | grep -E '(Size|Speed)'">>/home/austin/PythonPuzzle/server_reserve/cpuinfo.txt
+ssh -t -t $2@$1 "echo End" |cat >>/home/austin/PythonPuzzle/server_reserve/cpuinfo.txt
 
 #ssh $2@$1 "echo Kernel: & uname -r & echo Distribution: & lsb_release -a & echo Users: & who & echo Network Interface & ifconfig & echo CPU Architecture: & lscpu" | cat >> cpuinfo.txt
 #ssh -t $2@$1 "sudo dmidecode --type=17 | grep -E '(Size|Speed)'">>cpuinfo.txt
