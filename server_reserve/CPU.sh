@@ -9,7 +9,7 @@ fi
 #$2=username
 #$3=your ip address don't need anymore
 #$4=your username don't need anymore
-ssh -t -t  $2@$1 "echo Host Name: & hostname" | cat > /home/austin/PythonPuzzle/server_reserve/cpuinfo.txt
+ssh $2@$1 "echo Host Name: & hostname" | cat > /home/austin/PythonPuzzle/server_reserve/cpuinfo.txt
 ssh $2@$1 "echo Kernel: & uname -r" | cat >> /home/austin/PythonPuzzle/server_reserve/cpuinfo.txt
 ssh $2@$1 "echo Distribution: & lsb_release -a" | cat >> /home/austin/PythonPuzzle/server_reserve/cpuinfo.txt
 ssh $2@$1 "echo Users: & who" | cat >> /home/austin/PythonPuzzle/server_reserve/cpuinfo.txt
