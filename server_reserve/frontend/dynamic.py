@@ -52,6 +52,35 @@ with open("/var/www/html/index.html","w") as r:
 
 		for j in title:
 			jsondata = jsondata.replace(j, "<font style=\"background-color:ff8e3a\">"+j+"</font>")
+		
+		num = 0
+		numh = re.findall("Host:", jsondata)
+		while num < len(numh):
+			for k in numh:
+				num = num + 1
+				jsondata = jsondata.replace(k, "Host " + str(num) + ":", 1)
+#               num = 0
+#               numu = re.findall("Users:", jsondata)
+#               while num < len(numu):
+#                       for l in numu:
+#                               num = num + 1
+#                               jsondata = jsondata.replace(l,"Users " + str(num)+ ":", 1)
+		numt = re.findall("Total:",jsondata)
+		num = 0
+		while num < len(numt):
+			for tot in numt:
+				num = num + 1
+				jsondata = jsondata.replace(tot,"Total<!--" + str(num)+ "-->:", 1)
+		num = 0
+		while num < len(numt):
+			num = num + 1
+                        #use = re.findall("Users "+str(num)+".*Total "+str(num)+":[\d]",jsondata,re.S|re.M)
+			use = re.findall("Total<!--"+str(num)+"-->:[\d]",jsondata,re.S|re.M)
+                        #use = re.findall(":[\d]",use)  
+			us = str(use)
+			on = int(us[-3])
+			if on < 2:
+				jsondata = jsondata.replace("\"background-color: #EF4323\" id= h"+str(num)+">Host "+str(num)+":","\"background-color: #9ACD32\" id= h"+str(num)+">Host "+str(num)+":")
 
 	#	jsondata = jsondata.replace("Host:", "<font style=\"background-color: #EF4323\">Host:</font> ")
 
