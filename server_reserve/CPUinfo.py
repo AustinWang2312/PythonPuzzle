@@ -48,11 +48,14 @@ for ip in match_ips:
 		distribution=re.sub('\s+'," ",distribution)
 #		print(distribution)
 		
-		match_users=re.search('Users:(.*?)Network Interface:',contents,re.S)
+#		match_users=re.search('Users:(.*?)Network Interface:',contents,re.S)
+		match_users=re.search('Users:(.*)Network Interface:',contents,re.S)
 		users=match_users.group(1) if match_users else None 	
 #		users=re.sub('\s+'," ",users)
 #		print(users)
-				
+		amount=re.split('\\n',users)
+#		print(amount)	
+		print_amount="Total:"+str(len(amount)-2)		
 		match_network_interface=re.search('Network Interface:(.*?)CPU Architecture:',contents,re.S)
 		network_interface=match_network_interface.group(1) if match_network_interface else None 	
 #		network_interface=re.sub('\s+'," ",network_interface)
@@ -71,7 +74,7 @@ for ip in match_ips:
 		d["Host:"+host_name+"@"+ip]={}	
 		d["Host:"+host_name+"@"+ip]["Kernel:"]=kernel
 		d["Host:"+host_name+"@"+ip]["Distribution:"]=distribution
-		d["Host:"+host_name+"@"+ip]["Users:"]=users
+		d["Host:"+host_name+"@"+ip]["Users:"]=users+str(print_amount)
 		d["Host:"+host_name+"@"+ip]["Network Interface:"]=network_interface
 		d["Host:"+host_name+"@"+ip]["CPU Architecture:"]=CPU
 		d["Host:"+host_name+"@"+ip]["Memory Info:"]=memory
