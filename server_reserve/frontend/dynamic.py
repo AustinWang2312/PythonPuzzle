@@ -18,6 +18,7 @@ with open("/var/www/html/index.html","w") as r:
 	print("Intel Server Info", file = r)
 	print("</h3>", file = r)
 	print("<body>", file = r)
+	print("<p><a href=\"/refresh\">Refresh Page</a></p>", file = r)
 	with open("/home/austin/PythonPuzzle/server_reserve/cpuinfo.json", "r") as f:
 		brlist = ["{","}",",","\"","\\n",]
 		jsondata = f.read()	
