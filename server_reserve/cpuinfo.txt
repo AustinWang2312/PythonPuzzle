@@ -8,26 +8,26 @@ Description:	Ubuntu 16.04.2 LTS
 Release:	16.04
 Codename:	xenial
 Users:
-graham   tty7         2017-07-24 08:54 (:0)
+graham   tty7         2017-07-26 08:53 (:0)
 Network Interface:
 enp2s0    Link encap:Ethernet  HWaddr 44:8a:5b:cd:c6:1f  
           inet addr:10.7.190.172  Bcast:10.7.190.255  Mask:255.255.255.0
           inet6 addr: fe80::9045:ad6a:683d:de52/64 Scope:Link
           UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
-          RX packets:58529 errors:0 dropped:0 overruns:0 frame:0
-          TX packets:32549 errors:0 dropped:0 overruns:0 carrier:0
+          RX packets:319065 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:144284 errors:0 dropped:0 overruns:0 carrier:0
           collisions:0 txqueuelen:1000 
-          RX bytes:30564218 (30.5 MB)  TX bytes:5976227 (5.9 MB)
+          RX bytes:425964630 (425.9 MB)  TX bytes:10945090 (10.9 MB)
           Interrupt:18 
 
 lo        Link encap:Local Loopback  
           inet addr:127.0.0.1  Mask:255.0.0.0
           inet6 addr: ::1/128 Scope:Host
           UP LOOPBACK RUNNING  MTU:65536  Metric:1
-          RX packets:7141 errors:0 dropped:0 overruns:0 frame:0
-          TX packets:7141 errors:0 dropped:0 overruns:0 carrier:0
+          RX packets:360 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:360 errors:0 dropped:0 overruns:0 carrier:0
           collisions:0 txqueuelen:1000 
-          RX bytes:1421896 (1.4 MB)  TX bytes:1421896 (1.4 MB)
+          RX bytes:32891 (32.8 KB)  TX bytes:32891 (32.8 KB)
 
 CPU Architecture:
 Architecture:          x86_64
@@ -44,10 +44,10 @@ CPU family:            6
 Model:                 60
 Model name:            Intel(R) Core(TM) i7-4790K CPU @ 4.00GHz
 Stepping:              3
-CPU MHz:               1639.404
+CPU MHz:               4241.943
 CPU max MHz:           4400.0000
 CPU min MHz:           800.0000
-BogoMIPS:              7999.17
+BogoMIPS:              7999.97
 Virtualization:        VT-x
 L1d cache:             32K
 L1i cache:             32K

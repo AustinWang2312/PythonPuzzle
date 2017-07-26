@@ -9,15 +9,27 @@ fi
 #$2=username
 #$3=your ip address don't need anymore
 #$4=your username don't need anymore
-ssh $2@$1 "echo Host Name: & hostname" | cat > /home/austin/PythonPuzzle/server_reserve/cpuinfo.txt
-ssh $2@$1 "echo Kernel: & uname -r" | cat >> /home/austin/PythonPuzzle/server_reserve/cpuinfo.txt
-ssh $2@$1 "echo Distribution: & lsb_release -a" | cat >> /home/austin/PythonPuzzle/server_reserve/cpuinfo.txt
-ssh $2@$1 "echo Users: & who" | cat >> /home/austin/PythonPuzzle/server_reserve/cpuinfo.txt
-ssh $2@$1 "echo Network Interface: & ifconfig" | cat >> /home/austin/PythonPuzzle/server_reserve/cpuinfo.txt
-ssh $2@$1 "echo CPU Architecture: & lscpu; " | cat >> /home/austin/PythonPuzzle/server_reserve/cpuinfo.txt
-ssh -t -t $2@$1 "echo Memory Info: & sudo dmidecode --type=17 | grep -E '(Size|Speed)'">>/home/austin/PythonPuzzle/server_reserve/cpuinfo.txt
-ssh -t -t $2@$1 "echo End" |cat >>/home/austin/PythonPuzzle/server_reserve/cpuinfo.txt
-
+ping -c 1 $1 ; echo $? > /home/austin/PythonPuzzle/server_reserve/online.txt
+#nc -vv -z $1 22 > online.txt 2>&1
+if  grep "0" "/home/austin/PythonPuzzle/server_reserve/online.txt" ; then
+	ssh $2@$1 "echo Host Name: & hostname" | cat > /home/austin/PythonPuzzle/server_reserve/cpuinfo.txt
+	ssh $2@$1 "echo Kernel: & uname -r" | cat >> /home/austin/PythonPuzzle/server_reserve/cpuinfo.txt
+	ssh $2@$1 "echo Distribution: & lsb_release -a" | cat >> /home/austin/PythonPuzzle/server_reserve/cpuinfo.txt
+	ssh $2@$1 "echo Users: & who" | cat >> /home/austin/PythonPuzzle/server_reserve/cpuinfo.txt
+	ssh $2@$1 "echo Network Interface: & ifconfig" | cat >> /home/austin/PythonPuzzle/server_reserve/cpuinfo.txt
+	ssh $2@$1 "echo CPU Architecture: & lscpu; " | cat >> /home/austin/PythonPuzzle/server_reserve/cpuinfo.txt
+	ssh -t -t $2@$1 "echo Memory Info: & sudo dmidecode --type=17 | grep -E '(Size|Speed)'">>/home/austin/PythonPuzzle/server_reserve/cpuinfo.txt
+	ssh -t -t $2@$1 "echo End" |cat >>/home/austin/PythonPuzzle/server_reserve/cpuinfo.txt
+else 
+	echo Host Name:OFFLINE | cat >/home/austin/PythonPuzzle/server_reserve/cpuinfo.txt
+	echo Kernel:OFFLINE | cat >>/home/austin/PythonPuzzle/server_reserve/cpuinfo.txt
+	echo Distribution:OFFLINE | cat >>/home/austin/PythonPuzzle/server_reserve/cpuinfo.txt
+	echo Users:OFFLINE | cat >>/home/austin/PythonPuzzle/server_reserve/cpuinfo.txt
+	echo Network Interface:OFFLINE | cat >>/home/austin/PythonPuzzle/server_reserve/cpuinfo.txt
+	echo CPU Architecture:OFFLINE | cat >>/home/austin/PythonPuzzle/server_reserve/cpuinfo.txt
+	echo Memory Info:OFFLINE | cat >>/home/austin/PythonPuzzle/server_reserve/cpuinfo.txt
+	echo End | cat >>/home/austin/PythonPuzzle/server_reserve/cpuinfo.txt
+fi
 #ssh $2@$1 "echo Kernel: & uname -r & echo Distribution: & lsb_release -a & echo Users: & who & echo Network Interface & ifconfig & echo CPU Architecture: & lscpu" | cat >> cpuinfo.txt
 #ssh -t $2@$1 "sudo dmidecode --type=17 | grep -E '(Size|Speed)'">>cpuinfo.txt
 #ssh -t $2@$1 "sudo rm /tmp/cpuinfo.txt"
