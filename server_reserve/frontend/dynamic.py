@@ -1,10 +1,12 @@
 import subprocess
 import re
 import sys
-
+from datetime import datetime
 h = 0
 o = 0
 s = "Host:"
+time=str(datetime.now())
+time=time[:-10]
 with open("/var/www/html/"+sys.argv[1]+"index.html","w") as r:
 	print("<html>", file = r)	
 	print("<style>", file = r)
@@ -21,10 +23,9 @@ with open("/var/www/html/"+sys.argv[1]+"index.html","w") as r:
 	print("Intel Server Info", file = r)
 	print("</h3>", file = r)
 	print("<body>", file = r)
-	print("<p><a href=\"/refresh\">Refresh Page</a></p>", file = r)
+	print("<p><a href=\"/refresh\">Refresh Information (This may take a while)</a></p>", file = r)
 	print("<p>Last Updated:</p>",file = r)
-	print("<p id=\"date\"></p>", file = r)
-	print("<script>document.getElementById(\"date\").innerHTML = Date();</script>", file = r)
+	print("<p>"+str(time)+"</p>", file = r)
 	with open("/home/austin/PythonPuzzle/server_reserve/"+sys.argv[1]+"cpuinfo.json", "r") as f:
 		brlist = ["{","}",",","\"","\\n",]
 		jsondata = f.read()	
