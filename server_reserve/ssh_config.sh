@@ -16,7 +16,7 @@ if ! grep -q "admin_awgs" "/etc/passwd";
 then
 	echo "Press enter for all the prompts"
 	ssh -t $2@$1 "adduser admin_awgs"
-	ssh -t $2@$1 " echo "admin_awgs:rtp" | chpasswd"
+	ssh -t $2@$1 "echo "admin_awgs:rtp" | chpasswd"
 	ssh -t $2@$1 "echo 'admin_awgs ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers"
 	ssh -t $2@$1 "sudo service ssh restart & sudo chown -R admin_awgs /home/admin_awgs"
 fi

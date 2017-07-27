@@ -13,6 +13,10 @@ with open("/var/www/html/"+sys.argv[1]+"index.html","w") as r:
 	print("body{", file = r)
 	print("\tcolor:white;", file = r)
 	print("\tbackground-color:#0071c5", file = r)
+	print("\tbackground: -webkit-linear-gradient(left, #001a2d, #0082e6);", file = r)
+	print("\tbackground: -o-linear-gradient(right, #001a2d, #0082e6);", file = r)
+	print("\tbackground: -moz-linear-gradient(right, #001a2d, #0082e6);", file = r)
+	print("\tbackground: linear-gradient(to right, #001a2d, #0082e6);", file = r)
 	print("}", file = r)
 	print("</style>", file = r)
 #	print("<IMG SRC=\"/html/intel_logo.png\" alt = \"Intel Logo\" width = \"736px\" height = \"313px\" align = \"right\" ></IMG>",file = r)
@@ -23,7 +27,7 @@ with open("/var/www/html/"+sys.argv[1]+"index.html","w") as r:
 	print("Intel Server Info", file = r)
 	print("</h3>", file = r)
 	print("<body>", file = r)
-	print("<p><a href=\"/refresh\">Refresh Information (This may take a while)</a></p>", file = r)
+	print("<p><a href=\"/refresh\"><font color=\"FF0000\">Refresh Information (This may take a while)</font></a></p>", file = r)
 	print("<p>Last Updated:</p>",file = r)
 	print("<p>"+str(time)+"</p>", file = r)
 	with open("/home/austin/PythonPuzzle/server_reserve/"+sys.argv[1]+"cpuinfo.json", "r") as f:
@@ -45,8 +49,8 @@ with open("/var/www/html/"+sys.argv[1]+"index.html","w") as r:
 		for t in hosts:
 			o = o + 1
 			q = str(o)
-			print("<p><a href=\"#h"+q+"\">Jump to Host "+t+"</a></p>", file = r)
-			jsondata = jsondata.replace("Host:"+t+"","<p><a href=\"#\">Jump to Top</a></p><font style=\"background-color: #EF4323\" id= h"+q+">Host: "+t+"</font>",1)
+			print("<p><a href=\"#h"+q+"\"><font color=\"FF0000\">Jump to Host "+t+"</font></a></p>", file = r)
+			jsondata = jsondata.replace("Host:"+t+"","<p><a href=\"#\"><font color=\"FF0000\">Jump to Top</font></a></p><font style=\"background-color: #EF4323\" id= h"+q+">Host: "+t+"</font>",1)
 
 	
 #		for i in brlist:
@@ -93,7 +97,7 @@ with open("/var/www/html/"+sys.argv[1]+"index.html","w") as r:
 	#	jsondata = jsondata.replace("Host:", "<font style=\"background-color: #EF4323\">Host:</font> ")
 
 		print(jsondata, file = r)
-		print("<p><a href=\"#\">Jump to Top</a></p>", file = r)
+		print("<p><a href=\"#\"><font color=\"FF0000\">Jump to Top</font></a></p>", file = r)
 		print("</body>", file = r)
 		print("</html>", file = r)
 
