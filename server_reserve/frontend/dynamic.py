@@ -13,7 +13,7 @@ with open("/var/www/html/"+sys.argv[1]+"index.html","w") as r:
 	print("\tbackground-color:#0071c5", file = r)
 	print("}", file = r)
 	print("</style>", file = r)
-#	print("<IMG SRC=\"https://cdn.drawception.com/images/panels/2012/4-4/rrqqf3zZXh-6.png\" alt = \"Intel Logo\" width = \"300px\" height = \"250px\" align = \"right\" ></IMG>",file = r)
+#	print("<IMG SRC=\"/html/intel_logo.png\" alt = \"Intel Logo\" width = \"736px\" height = \"313px\" align = \"right\" ></IMG>",file = r)
 	print("<title>", file = r)
 	print("Intel Server Info", file = r)
 	print("</title>", file = r)
@@ -22,6 +22,9 @@ with open("/var/www/html/"+sys.argv[1]+"index.html","w") as r:
 	print("</h3>", file = r)
 	print("<body>", file = r)
 	print("<p><a href=\"/refresh\">Refresh Page</a></p>", file = r)
+	print("<p>Last Updated:</p>",file = r)
+	print("<p id=\"date\"></p>", file = r)
+	print("<script>document.getElementById(\"date\").innerHTML = Date();</script>", file = r)
 	with open("/home/austin/PythonPuzzle/server_reserve/"+sys.argv[1]+"cpuinfo.json", "r") as f:
 		brlist = ["{","}",",","\"","\\n",]
 		jsondata = f.read()	
