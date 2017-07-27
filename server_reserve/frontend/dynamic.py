@@ -22,7 +22,7 @@ with open("/var/www/html/"+sys.argv[1]+"index.html","w") as r:
 	print("</h3>", file = r)
 	print("<body>", file = r)
 	print("<p><a href=\"/refresh\">Refresh Page</a></p>", file = r)
-	with open("/home/austin/PythonPuzzle/server_reserve/cpuinfo.json", "r") as f:
+	with open("/home/austin/PythonPuzzle/server_reserve/"+sys.argv[1]+"cpuinfo.json", "r") as f:
 		brlist = ["{","}",",","\"","\\n",]
 		jsondata = f.read()	
 
