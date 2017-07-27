@@ -7,29 +7,37 @@ fi
 
 #$1=ip
 #$2=username
-#$3=your ip address don't need anymore
-#$4=your username don't need anymore
-ping -c 1 $1 ; echo $? > /home/austin/PythonPuzzle/server_reserve/online.txt
+#$=your ip address don't need anymore
+#$=your username don't need anymore
+#$3=the random number appended to the filename
+
+file_prefix=$3
+file_suffix="cpuinfo.txt"
+file_path="/home/austin/PythonPuzzle/server_reserve/"
+file_ping="online.txt"
+#echo $file_path$file_prefix$file_suffix
+ping -c 1 $1 ; echo $? > "$file_path$file_prefix$file_ping"
 #nc -vv -z $1 22 > online.txt 2>&1
-if  grep "0" "/home/austin/PythonPuzzle/server_reserve/online.txt" ; then
-	ssh $2@$1 "echo Host Name: & hostname" | cat > /home/austin/PythonPuzzle/server_reserve/cpuinfo.txt
-	ssh $2@$1 "echo Kernel: & uname -r" | cat >> /home/austin/PythonPuzzle/server_reserve/cpuinfo.txt
-	ssh $2@$1 "echo Distribution: & lsb_release -a" | cat >> /home/austin/PythonPuzzle/server_reserve/cpuinfo.txt
-	ssh $2@$1 "echo Users: & who" | cat >> /home/austin/PythonPuzzle/server_reserve/cpuinfo.txt
-	ssh $2@$1 "echo Network Interface: & ifconfig" | cat >> /home/austin/PythonPuzzle/server_reserve/cpuinfo.txt
-	ssh $2@$1 "echo CPU Architecture: & lscpu; " | cat >> /home/austin/PythonPuzzle/server_reserve/cpuinfo.txt
-	ssh -t -t $2@$1 "echo Memory Info: & sudo dmidecode --type=17 | grep -E '(Size|Speed)'">>/home/austin/PythonPuzzle/server_reserve/cpuinfo.txt
-	ssh -t -t $2@$1 "echo End" |cat >>/home/austin/PythonPuzzle/server_reserve/cpuinfo.txt
+if  grep -q "0" "$file_path$file_prefix$file_ping" ; then
+	ssh $2@$1 "echo Host Name: & hostname" | cat > "$file_path$file_prefix$file_suffix"
+	ssh $2@$1 "echo Kernel: & uname -r" | cat >> "$file_path$file_prefix$file_suffix"
+	ssh $2@$1 "echo Distribution: & lsb_release -a" | cat >> "$file_path$file_prefix$file_suffix"
+	ssh $2@$1 "echo Users: & who" | cat >> "$file_path$file_prefix$file_suffix"
+	ssh $2@$1 "echo Network Interface: & ifconfig" | cat >> "$file_path$file_prefix$file_suffix"
+	ssh $2@$1 "echo CPU Architecture: & lscpu; " | cat >> "$file_path$file_prefix$file_suffix"
+	ssh -t -t $2@$1 "echo Memory Info: & sudo dmidecode --type=17 | grep -E '(Size|Speed)'">>"$file_path$file_prefix$file_suffix"
+	ssh -t -t $2@$1 "echo End" |cat >>"$file_path$file_prefix$file_suffix"
 else 
-	echo Host Name:OFFLINE | cat >/home/austin/PythonPuzzle/server_reserve/cpuinfo.txt
-	echo Kernel:OFFLINE | cat >>/home/austin/PythonPuzzle/server_reserve/cpuinfo.txt
-	echo Distribution:OFFLINE | cat >>/home/austin/PythonPuzzle/server_reserve/cpuinfo.txt
-	echo Users:OFFLINE | cat >>/home/austin/PythonPuzzle/server_reserve/cpuinfo.txt
-	echo Network Interface:OFFLINE | cat >>/home/austin/PythonPuzzle/server_reserve/cpuinfo.txt
-	echo CPU Architecture:OFFLINE | cat >>/home/austin/PythonPuzzle/server_reserve/cpuinfo.txt
-	echo Memory Info:OFFLINE | cat >>/home/austin/PythonPuzzle/server_reserve/cpuinfo.txt
-	echo End | cat >>/home/austin/PythonPuzzle/server_reserve/cpuinfo.txt
+	echo Host Name:OFFLINE | cat >"$file_path$file_prefix$file_suffix"
+	echo Kernel:OFFLINE | cat >>"$file_path$file_prefix$file_suffix"
+	echo Distribution:OFFLINE | cat >>"$file_path$file_prefix$file_suffix"
+	echo Users:OFFLINE | cat >>"$file_path$file_prefix$file_suffix"
+	echo Network Interface:OFFLINE | cat >>"$file_path$file_prefix$file_suffix"
+	echo CPU Architecture:OFFLINE | cat >>"$file_path$file_prefix$file_suffix"
+	echo Memory Info:OFFLINE | cat >>"$file_path$file_prefix$file_suffix"
+	echo End | cat >>"$file_path$file_prefix$file_suffix"
 fi
+
 #ssh $2@$1 "echo Kernel: & uname -r & echo Distribution: & lsb_release -a & echo Users: & who & echo Network Interface & ifconfig & echo CPU Architecture: & lscpu" | cat >> cpuinfo.txt
 #ssh -t $2@$1 "sudo dmidecode --type=17 | grep -E '(Size|Speed)'">>cpuinfo.txt
 #ssh -t $2@$1 "sudo rm /tmp/cpuinfo.txt"

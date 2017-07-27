@@ -1,9 +1,11 @@
 import subprocess
 import re
+import sys
+
 h = 0
 o = 0
 s = "Host:"
-with open("/var/www/html/index.html","w") as r:
+with open("/var/www/html/"+sys.argv[1]+"index.html","w") as r:
 	print("<html>", file = r)	
 	print("<style>", file = r)
 	print("body{", file = r)
@@ -11,6 +13,7 @@ with open("/var/www/html/index.html","w") as r:
 	print("\tbackground-color:#0071c5", file = r)
 	print("}", file = r)
 	print("</style>", file = r)
+#	print("<IMG SRC=\"https://cdn.drawception.com/images/panels/2012/4-4/rrqqf3zZXh-6.png\" alt = \"Intel Logo\" width = \"300px\" height = \"250px\" align = \"right\" ></IMG>",file = r)
 	print("<title>", file = r)
 	print("Intel Server Info", file = r)
 	print("</title>", file = r)
@@ -90,4 +93,4 @@ with open("/var/www/html/index.html","w") as r:
 		print("</body>", file = r)
 		print("</html>", file = r)
 
-#subprocess.check_call("/home/austin/PythonPuzzle/server_reserve/frontend/cpagec.sh",shell=True)
+subprocess.check_call("/home/austin/PythonPuzzle/server_reserve/frontend/clean_up.sh "+str(sys.argv[1]),shell=True)

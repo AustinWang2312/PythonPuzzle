@@ -8,26 +8,26 @@ Description:	Ubuntu 16.04.2 LTS
 Release:	16.04
 Codename:	xenial
 Users:
-graham   tty7         2017-07-26 08:53 (:0)
+graham   tty7         2017-07-26 16:29 (:0)
 Network Interface:
 enp2s0    Link encap:Ethernet  HWaddr 44:8a:5b:cd:c6:1f  
           inet addr:10.7.190.172  Bcast:10.7.190.255  Mask:255.255.255.0
           inet6 addr: fe80::9045:ad6a:683d:de52/64 Scope:Link
           UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
-          RX packets:319065 errors:0 dropped:0 overruns:0 frame:0
-          TX packets:144284 errors:0 dropped:0 overruns:0 carrier:0
+          RX packets:817391 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:331382 errors:0 dropped:0 overruns:0 carrier:0
           collisions:0 txqueuelen:1000 
-          RX bytes:425964630 (425.9 MB)  TX bytes:10945090 (10.9 MB)
+          RX bytes:956221306 (956.2 MB)  TX bytes:31734867 (31.7 MB)
           Interrupt:18 
 
 lo        Link encap:Local Loopback  
           inet addr:127.0.0.1  Mask:255.0.0.0
           inet6 addr: ::1/128 Scope:Host
           UP LOOPBACK RUNNING  MTU:65536  Metric:1
-          RX packets:360 errors:0 dropped:0 overruns:0 frame:0
-          TX packets:360 errors:0 dropped:0 overruns:0 carrier:0
+          RX packets:2843 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:2843 errors:0 dropped:0 overruns:0 carrier:0
           collisions:0 txqueuelen:1000 
-          RX bytes:32891 (32.8 KB)  TX bytes:32891 (32.8 KB)
+          RX bytes:528889 (528.8 KB)  TX bytes:528889 (528.8 KB)
 
 CPU Architecture:
 Architecture:          x86_64
@@ -44,10 +44,10 @@ CPU family:            6
 Model:                 60
 Model name:            Intel(R) Core(TM) i7-4790K CPU @ 4.00GHz
 Stepping:              3
-CPU MHz:               4241.943
+CPU MHz:               4327.636
 CPU max MHz:           4400.0000
 CPU min MHz:           800.0000
-BogoMIPS:              7999.97
+BogoMIPS:              7999.07
 Virtualization:        VT-x
 L1d cache:             32K
 L1i cache:             32K
@@ -56,16 +56,5 @@ L3 cache:              8192K
 NUMA node0 CPU(s):     0-7
 Flags:                 fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm xsaveopt dtherm ida arat pln pts
 Memory Info:
-	Size: No Module Installed
-	Speed: Unknown
-	Configured Clock Speed: Unknown
-	Size: 8192 MB
-	Speed: 1600 MHz
-	Configured Clock Speed: 1600 MHz
-	Size: No Module Installed
-	Speed: Unknown
-	Configured Clock Speed: Unknown
-	Size: 8192 MB
-	Speed: 1600 MHz
-	Configured Clock Speed: 1600 MHz
+[sudo] password for graham: 
 End
