@@ -16,7 +16,7 @@ file_suffix="cpuinfo.txt"
 file_path="/home/austin/PythonPuzzle/server_reserve/"
 file_ping="online.txt"
 #echo $file_path$file_prefix$file_suffix
-ping -c 1 $1 ; echo $? > "$file_path$file_prefix$file_ping"
+timeout 0.2 ping -c 1 $1 ; echo $? > "$file_path$file_prefix$file_ping"
 #nc -vv -z $1 22 > online.txt 2>&1
 if  grep -q "0" "$file_path$file_prefix$file_ping" ; then
 	ssh $2@$1 "echo Host Name: & hostname" | cat > "$file_path$file_prefix$file_suffix"
