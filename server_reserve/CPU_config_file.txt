@@ -1,6 +1,6 @@
 #this is config file
 
-Host:pxwang IP:10.7.190.67
-Host:root IP:10.7.190.70
-Host:yash IP:10.7.189.180
-Host:graham IP:10.7.190.172
+IP:10.7.190.67
+IP:10.7.190.70
+IP:10.7.189.180
+IP:10.7.190.172

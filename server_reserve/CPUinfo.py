@@ -20,7 +20,7 @@ open(file_input_name, 'w').close()
 
 with open(file_config_name) as f:
 	contents=f.read()
-	match_hosts=re.findall('Host:(\S+)',contents)
+#	match_hosts=re.findall('Host:(\S+)',contents)
 	match_ips=re.findall('IP:(\S+)',contents)
 #	print(match_ips)
 #	print(match_hosts)
