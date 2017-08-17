@@ -13,7 +13,7 @@ fi
 
 file_prefix=$3
 file_suffix="cpuinfo.txt"
-file_path="/home/austin/PythonPuzzle/server_reserve/"
+file_path="/home/austin/server_reserve/"
 file_ping="online.txt"
 #echo $file_path$file_prefix$file_suffix
 timeout 0.2 ping -c 1 $1 ; echo $? > "$file_path$file_prefix$file_ping"

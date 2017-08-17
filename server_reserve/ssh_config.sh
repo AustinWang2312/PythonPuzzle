@@ -15,20 +15,20 @@ fi
 if ! grep -q "admin_awgs" "/etc/passwd";
 then
 	echo "Press enter for all the prompts"
-	ssh -t $2@$1 "adduser admin_awgs"
-	ssh -t $2@$1 "echo "admin_awgs:rtp" | chpasswd"
-	ssh -t $2@$1 "echo 'admin_awgs ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers"
-	ssh -t $2@$1 "sudo service ssh restart & sudo chown -R admin_awgs /home/admin_awgs"
+	ssh -t $2@$1 "sudo adduser admin_awgs"
+	#ssh -t $2@$1 "sudo echo "admin_awgs:rtp" | chpasswd"
+	ssh -t $2@$1 "sudo echo 'admin_awgs ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers"
+	ssh -t $2@$1 "sudo service ssh restart & chown -R admin_awgs /home/admin_awgs"
 fi
 #ssh -t $2@$1 "sudo su admin & sudo visudo"
 echo "password:rtp"
 
 #cat ~/.ssh/id_rsa.pub | ssh admin@$1 "sudo mkdir -p /home/.ssh && cat >>  /home/.ssh/authorized_keys"
 ssh-copy-id admin_awgs@$1
-echo "test"
+#echo "test"
 ssh-add
 if ! grep -q "$1" "CPU_config_file.txt"; 
 then
-	echo "Host:$2 IP:$1">>CPU_config_file.txt
+	echo "Host:$2 IP:$1">>/home/austin/server_reserve/CPU_config_file.txt
 fi
 

@@ -8,13 +8,9 @@ import sys
 #print(sys.argv[1])
 
 
-#remote_ip="10.7.190.172"
-#remote_user="graham"
-#your_ip="10.7.189.88"    
-#your_user="austin"
-file_config_name="/home/austin/PythonPuzzle/server_reserve/CPU_config_file.txt"
-file_input_name="/home/austin/PythonPuzzle/server_reserve/"+sys.argv[1]+"cpuinfo.txt"
-file_output_name="/home/austin/PythonPuzzle/server_reserve/"+sys.argv[1]+"cpuinfo.json"
+file_config_name="/home/austin/server_reserve/CPU_config_file.txt"
+file_input_name="/home/austin/server_reserve/"+sys.argv[1]+"cpuinfo.txt"
+file_output_name="/home/austin/server_reserve/"+sys.argv[1]+"cpuinfo.json"
 
 open(file_input_name, 'w').close()
 
@@ -22,55 +18,38 @@ with open(file_config_name) as f:
 	contents=f.read()
 #	match_hosts=re.findall('Host:(\S+)',contents)
 	match_ips=re.findall('IP:(\S+)',contents)
-#	print(match_ips)
-#	print(match_hosts)
 
 d={} 
 for ip in match_ips:
-	subprocess.check_call(["/home/austin/PythonPuzzle/server_reserve/CPU.sh",ip,"admin_awgs",sys.argv[1]])
+	subprocess.check_call(["/home/austin/server_reserve/CPU.sh",ip,"admin_awgs",sys.argv[1]])
 	with open(file_input_name) as f:
 		contents =f.read()
-#		match_mac=re.findall('HWaddr (\S+)',contents)
 		match_host_name=re.search('Host Name:(.*?)Kernel:',contents,re.S)
 		host_name=match_host_name.group(1) if match_host_name else None 	
 		host_name=re.sub('\s+',"",host_name)
 		
 		match_kernel=re.search('\Kernel:(.*?)\Distribution',contents,re.S)
 		kernel=match_kernel.group(1) if match_kernel else None 	
-#		print(kernel)
 		kernel=str.strip(kernel)
 	
 		match_distribution=re.search('Distribution:(.*?)Users',contents,re.S)
 		distribution=match_distribution.group(1) if match_distribution else None 	
 			
-#		distribution=distribution.rstrip()
-#		distribution="".join(distribution.split('\n'))
 		distribution=re.sub('\s+'," ",distribution)
-#		print(distribution)
 		
-#		match_users=re.search('Users:(.*?)Network Interface:',contents,re.S)
 		match_users=re.search('Users:(.*)Network Interface:',contents,re.S)
 		users=match_users.group(1) if match_users else None 	
-#		users=re.sub('\s+'," ",users)
-#		print(users)
 		amount=re.split('\\n',users)
-#		print(amount)	
 		print_amount="Total:"+str(len(amount)-2)		
 		match_network_interface=re.search('Network Interface:(.*?)CPU Architecture:',contents,re.S)
 		network_interface=match_network_interface.group(1) if match_network_interface else None 	
-#		network_interface=re.sub('\s+'," ",network_interface)
-#		print(network_interface)
 		
 
 		match_CPU=re.search('CPU Architecture:(.*?)Memory Info:',contents,re.S)
 		CPU=match_CPU.group(1) if match_CPU else None 	
-#		CPU=re.sub('\s+'," ",CPU)
-#		print(CPU)
 
 		match_memory=re.search('Memory Info:(.*?)End',contents,re.S)
 		memory=match_memory.group(1) if match_memory else None 	
-#		memory=re.sub('\s+'," ",memory)
-#		print(memory)
 		d["Host:"+host_name+"@"+ip]={}	
 		d["Host:"+host_name+"@"+ip]["Kernel:"]=kernel
 		d["Host:"+host_name+"@"+ip]["Distribution:"]=distribution
@@ -78,24 +57,12 @@ for ip in match_ips:
 		d["Host:"+host_name+"@"+ip]["Network Interface:"]=network_interface
 		d["Host:"+host_name+"@"+ip]["CPU Architecture:"]=CPU
 		d["Host:"+host_name+"@"+ip]["Memory Info:"]=memory
-#		open(file_input_name, 'w').close()
 		
-#print(d)
-#	for i in match_kernel:
-#		str.strip(i)
-#		print(i)
-#	print(match_kernel)
-	
-#content={"mac_address":mac}
 json_str=json.dumps(d,indent=1)
-#json_str=json_str.replace('\\n','\n')
-#print(json_str)
 
 with open(file_output_name, "w") as fout:
-#	json.loads((json_str), fout)
 	fout.write (json_str)
-#subprocess.check_call("./dynamic.py",shell=True)
-python_execute_dynamic_string="python3 /home/austin/PythonPuzzle/server_reserve/frontend/dynamic.py "+str(sys.argv[1])
+python_execute_dynamic_string="python3 /home/austin/server_reserve/frontend/dynamic.py "+str(sys.argv[1])
 
 os.system(python_execute_dynamic_string)
 #with open(file_input_name, "rb") as fin:

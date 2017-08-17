@@ -19,7 +19,7 @@ with open("/var/www/html/"+sys.argv[1]+"index.html","w") as r:
 	print("\tbackground: linear-gradient(to right, #001a2d, #0082e6);", file = r)
 	print("}", file = r)
 	print("</style>", file = r)
-#	print("<IMG SRC=\"/html/intel_logo.png\" alt = \"Intel Logo\" width = \"736px\" height = \"313px\" align = \"right\" ></IMG>",file = r)
+	print("<IMG SRC=\"/IntelLogo-300x150.png\" alt = \"Intel Logo\" width = \"300px\" height = \"150px\" align = \"right\" ></IMG>",file = r)
 	print("<title>", file = r)
 	print("Intel Server Info", file = r)
 	print("</title>", file = r)
@@ -27,10 +27,11 @@ with open("/var/www/html/"+sys.argv[1]+"index.html","w") as r:
 	print("Intel Server Info", file = r)
 	print("</h3>", file = r)
 	print("<body>", file = r)
-	print("<p><a href=\"/refresh\"><font color=\"FF0000\">Refresh Information (This may take a while)</font></a></p>", file = r)
+	print("<p><a href=\"/refresh_long\"><font color=\"FF0000\">Refresh Information (This may take a while)</font></a></p>", file = r)
+	print("<p><a href=\"/\"><font color=\"FF0000\">Condensed List</font></a></p>", file = r)
 	print("<p>Last Updated:</p>",file = r)
 	print("<p>"+str(time)+"</p>", file = r)
-	with open("/home/austin/PythonPuzzle/server_reserve/"+sys.argv[1]+"cpuinfo.json", "r") as f:
+	with open("/home/austin/server_reserve/"+sys.argv[1]+"cpuinfo.json", "r") as f:
 		brlist = ["{","}",",","\"","\\n",]
 		jsondata = f.read()	
 
@@ -44,13 +45,14 @@ with open("/var/www/html/"+sys.argv[1]+"index.html","w") as r:
 
 		h = jsondata.count(s)
 		
-		hosts = re.findall('Host:(\S+)',jsondata,re.S)
+		hosts = re.findall('Host:(\S+)',jsondata)
 #		print(hosts)
 		for t in hosts:
-			o = o + 1
-			q = str(o)
-			print("<p><a href=\"#h"+q+"\"><font color=\"FF0000\">Jump to Host "+t+"</font></a></p>", file = r)
-			jsondata = jsondata.replace("Host:"+t+"","<p><a href=\"#\"><font color=\"FF0000\">Jump to Top</font></a></p><font style=\"background-color: #EF4323\" id= h"+q+">Host: "+t+"</font>",1)
+#			o = o + 1
+#			q = str(o)
+			abbreviate=t[:-1]
+			print("<p><a href=\"#h"+abbreviate+"\"><font color=\"FF0000\">Jump to Host "+t+"</font></a></p>", file = r)
+			jsondata = jsondata.replace("Host:"+t+"","<p><a href=\"#""\"><font color=\"FF0000\">Jump to Top</font></a></p><font style=\"background-color: #EF4323\" id= h"+t+">Host: "+t+"</font>",1)
 
 	
 #		for i in brlist:
@@ -101,4 +103,4 @@ with open("/var/www/html/"+sys.argv[1]+"index.html","w") as r:
 		print("</body>", file = r)
 		print("</html>", file = r)
 
-subprocess.check_call("/home/austin/PythonPuzzle/server_reserve/frontend/clean_up.sh "+str(sys.argv[1]),shell=True)
+subprocess.check_call("/home/austin/server_reserve/frontend/clean_up.sh "+str(sys.argv[1]),shell=True)
